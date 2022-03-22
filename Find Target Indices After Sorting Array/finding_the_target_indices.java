@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.Array;
+
 class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
               List<Integer> output = new ArrayList<>();
