@@ -10,7 +10,7 @@ class Solution {
             }
             one[i] = counter;
         }
+        
         return one;
-
     }
 }
