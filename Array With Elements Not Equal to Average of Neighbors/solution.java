@@ -1,4 +1,5 @@
 class solution {
+
     boolean compare(int a, int b, int c) {
         return (((a + c) / 2) == b) ? true : false;
     }
@@ -14,12 +15,10 @@ class solution {
                     nums[i] = nums[i + 1];
                     nums[i + 1] = temp;
                     make_swap = true;
-
                 }
             }
         }
 
         return nums;
-
     }
 }
