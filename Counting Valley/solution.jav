@@ -24,11 +24,6 @@ class solution {
       }
 
       return valleyCount;
-
-  }
-
-  public static void main(String[] args) {
-
   }
 
 }
