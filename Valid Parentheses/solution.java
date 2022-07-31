@@ -16,18 +16,21 @@ class Solution {
                 case '{':
                     stack.push(c);
                     break;
+
                 case ')':
                     if (stack.empty() || stack.peek() != '(')
                         return false;
                     else
                         stack.pop();
                     break;
+
                 case ']':
                     if (stack.empty() || stack.peek() != '[')
                         return false;
                     else
                         stack.pop();
                     break;
+                    
                 case '}':
                     if (stack.empty() || stack.peek() != '{')
                         return false;
