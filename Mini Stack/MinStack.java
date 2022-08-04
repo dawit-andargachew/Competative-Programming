@@ -15,7 +15,6 @@ class MinStack {
     public void pop() {
         if (!s.empty())
             s.pop();
-
     }
 
     public int top() {
@@ -23,7 +22,6 @@ class MinStack {
             return -1;
 
         return s.peek();
-
     }
 
     public int getMin() {
