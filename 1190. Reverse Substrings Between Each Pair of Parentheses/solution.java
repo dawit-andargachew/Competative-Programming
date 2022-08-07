@@ -8,32 +8,30 @@ class solution {
 
         List<Character> one = new ArrayList<>();
         Queue<Character> queue = new LinkedList<>();
+
         for (char c : s.toCharArray())
             one.add(c);
 
-        try {
-            for (int i = 0; i < one.size(); i++) {
+        for (int i = 0; i < one.size(); i++) {
 
-                if (one.get(i) == ')') {
-                    int j = i - 1;
+            if (one.get(i) == ')') {
+                int j = i - 1;
 
-                    one.set(i, '|');// replace )
+                one.set(i, '|');// replace )
 
-                    while (one.get(j) != '(') {
-                        queue.add(one.get(j));
-                        j--;
-                    }
-                    one.set(j, '|'); // remove (
+                while (one.get(j) != '(') {
+                    queue.add(one.get(j));
+                    j--;
+                }
+                // System.out.println(one.get(j));
+                one.set(j, '|'); // remove (
 
+                j++;
+                while (!queue.isEmpty()) {
+                    one.set(j, queue.poll());
                     j++;
-                    while (!queue.isEmpty()) {
-                        one.set(j, queue.poll());
-                        j++;
-                    }
                 }
             }
-
-        } catch (Exception e) {
         }
 
         // one.removeIf(x -> x == '|');
