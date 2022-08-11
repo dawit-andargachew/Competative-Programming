@@ -12,6 +12,7 @@ class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null)
             return head;
+            
         // head => next <= next.next <=
         ListNode p = reverseList(head.next);
         head.next.next = head;
