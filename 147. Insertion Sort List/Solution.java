@@ -5,13 +5,13 @@ class Solution {
 
         while (head != null) {
             ListNode next = head.next; 
-            if (prev.val >= head.val) // `prev` >= current inserting node
-                prev = result; // move `prev` to the front
+            if (prev.val >= head.val)
+                prev = result; 
             while (prev.next != null && prev.next.val < head.val)
                 prev = prev.next;
             head.next = prev.next;
             prev.next = head;
-            head = next; // update current inserting node
+            head = next; 
         }
 
         return result.next;
