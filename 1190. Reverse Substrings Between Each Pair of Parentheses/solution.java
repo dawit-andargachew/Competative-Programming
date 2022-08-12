@@ -41,6 +41,5 @@ class solution {
         String result = one.toString().replaceAll("[|,\\[\\] ]", "");
 
         return result;
-
     }
 }
