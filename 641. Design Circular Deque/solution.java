@@ -11,6 +11,7 @@ class MyCircularDeque {
     public boolean insertFront(int value) {
         if (isFull())
             return false;
+            
         deque.add(0, value);
         return true;
     }
