@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 class MyCircularDeque {
+    
     Stack<Integer> deque = new Stack<>();
     int size;
 
@@ -11,7 +12,7 @@ class MyCircularDeque {
     public boolean insertFront(int value) {
         if (isFull())
             return false;
-            
+
         deque.add(0, value);
         return true;
     }
