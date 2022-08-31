@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
-class o {
-    static int minIncrementForUnique(int[] nums) {
+class Solution {
+    public int minIncrementForUnique(int[] nums) {
         Arrays.sort(nums);
         int moves = 0;
 
