@@ -40,13 +40,13 @@ class Solution {
         //      }
         //      }
 
+        int diff = 0;
         for (int i = 1; i < nums.length; i++) {
-            int diff = 0;
-
             if (nums[i - 1] >= nums[i]) {
                 diff = nums[i - 1] - nums[i] + 1;
                 moves += diff;
                 nums[i] += diff;
+                diff  = 0;
             }
         }
 
