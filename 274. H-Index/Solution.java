@@ -1,7 +1,7 @@
 
 class Solution {
     static int hIndex(int[] citations) {
-        
+
         int n = citations.length;
         int accumulate = 0;
         int[] count = new int[n + 1];// count should be [n+1] => because Math.min(n, citations)
