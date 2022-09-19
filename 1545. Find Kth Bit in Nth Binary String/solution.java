@@ -15,18 +15,15 @@ class Solution {
             i++;
         }
 
-        return new String(chars);
+        return String.valueOf(chars);
     }
 
     public char findKthBit(int n, int k) {
 
         String bit = "0";
-        int i = 1;
-        while (i < n) {
+        for (int i = 1; i < n; i++)
             bit = bit + "1" + reverse(bit);
-            i++;
-        }
-        
+
         return bit.charAt(k - 1);
     }
 }
