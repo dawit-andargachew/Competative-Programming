@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+// https://www.youtube.com/watch?v=ED4ateJu86I&t=666s
+// https://www.youtube.com/watch?v=Ajw2j13Lp9o
 
 class Solution {
     public List<Integer> partitionLabels(String s) {
