@@ -11,8 +11,7 @@ class Solution {
                 nums[right] = nums[left];
                 nums[left] = temp;
                 left++;
-                right++;
-                
+                right++;                
             }
         }        
     }
