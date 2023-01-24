@@ -1,16 +1,14 @@
 //https://www.youtube.com/watch?v=xpSfcHDTPZQ
 class LRUCache {
 
-    Node head, tail;
+    Node head =  new Node(0,0);
+    Node tail =  new Node(0,0);
+    HashMap<Integer,Node> map = new HashMap();
     int capacity;
-    HashMap<Integer,Node> map;
 
+    
     public LRUCache(int capacity) {
         this.capacity = capacity;
-        map = new HashMap();
-        head =  new Node(0,0);
-        tail =  new Node(0,0);
-
         head.next = tail;
         tail.prev = head;        
     }
