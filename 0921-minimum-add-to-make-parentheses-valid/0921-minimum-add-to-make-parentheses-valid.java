@@ -1,6 +1,7 @@
 class Solution {
     public int minAddToMakeValid(String s) {
         
+        /// let pop the stack if we get '(' followed by ')'
         Stack<Character> stack = new Stack();
         
         for(char c : s.toCharArray()){
