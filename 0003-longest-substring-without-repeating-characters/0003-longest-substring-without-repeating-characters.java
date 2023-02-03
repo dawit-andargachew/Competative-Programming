@@ -1,6 +1,5 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-
         int len = 0;
         for(int i = 0; i < s.length(); i++){
             List<Character> sub = new ArrayList();
@@ -15,6 +14,6 @@ class Solution {
             len = Math.max(len,sub.size());
            }
 
-        return len;
+        return len;  
     }
 }
