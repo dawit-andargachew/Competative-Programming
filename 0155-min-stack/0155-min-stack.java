@@ -18,7 +18,13 @@ class MinStack {
     }
     
     public int getMin() {
-        return Collections.min(stack);
+        int min = stack.get(0);
+        for(int i = 1; i < stack.size(); i++){
+            if(min > stack.get(i))
+                min = stack.get(i); 
+        }
+        
+        return min;
     }
 }
 
