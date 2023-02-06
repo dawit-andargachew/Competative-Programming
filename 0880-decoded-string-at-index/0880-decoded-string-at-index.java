@@ -1,24 +1,3 @@
-// class Solution {
-//     public String decodeAtIndex(String s, int k) {
-        
-//         String decode = "";
-//         for(char c : s.toCharArray()){
-//             if( ! Character.isDigit(c))
-//                 decode += c.toString();
-//             else{
-//                 int repeat = c - '0' - 1;
-//                 String temp = decode;
-//                 while( repeat > 0 && decode.length() < k){
-//                     decode += temp;
-//                     repeat--;
-//                 }
-//             }
-//         }
-        
-        
-//         return decode.charAt(k).toString();
-//     }
-// }
 class Solution {
     public String decodeAtIndex(String S, int K) {
         for (int len = 0, i = 0; i < S.length(); i++) {
@@ -40,6 +19,8 @@ class Solution {
                 }
             }
         }
+        
+        
         return "";
     }
 }
