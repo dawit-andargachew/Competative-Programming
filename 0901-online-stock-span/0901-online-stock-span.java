@@ -1,5 +1,7 @@
 class StockSpanner {
     Stack<int []> stack;
+    //source, official leetcode answer
+    //      https://leetcode.com/problems/online-stock-span/solutions/2643474/online-stock-span/
     // her is also anothe monotonic stack question, where the stack contains
     //        {price, its span}
     // every time we get price less than the current price 
