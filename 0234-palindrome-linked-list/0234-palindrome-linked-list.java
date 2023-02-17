@@ -29,12 +29,12 @@ class Solution {
             head = next;
         }
 
-        dummy = dummy.next; 
-        while( prev != null && dummy != null){// compare original and reversed lists
-            if( prev.val != dummy.val)
+        original = dummy.next; 
+        while( prev != null && original != null){// compare original and reversed lists
+            if( prev.val != original.val)
                 return false;
             prev = prev.next;
-            dummy = dummy.next;
+            original = original.next;
         }
 
         return true;
