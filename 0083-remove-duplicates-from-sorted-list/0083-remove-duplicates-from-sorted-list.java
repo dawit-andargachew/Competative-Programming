@@ -10,21 +10,28 @@
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        List<Integer> nums = new ArrayList();
-
+       if(head == null || head.next == null)
+            return head;
+        
+        
+        ListNode dummy = new ListNode();
+        ListNode node = dummy;
+        
+        node.next = new ListNode(head.val);
+        node = node.next;
+        head = head.next;
+        
         while(head != null){
-            if(!nums.contains(head.val))
-                nums.add(head.val);
+            
+            if(head.val != node.val){
+                node.next = new ListNode(head.val);
+                node = node.next;
+            }                    
+
             head = head.next;
         }
-
-        ListNode node = new ListNode(0);
-        head = node;
-        for(int i = 0; i < nums.size(); i++){
-            head.next = new ListNode(nums.get(i));
-            head = head.next;
-        }
-
-        return node.next;        
+        
+        return dummy.next;       
+        
     }
 }
