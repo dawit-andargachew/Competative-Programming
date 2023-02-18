@@ -15,7 +15,7 @@ class Solution {
        while(i < nums.length){
             if(total - prefixSum - nums[i] == prefixSum)
                 return i;
-            else
+            // else
                 prefixSum += nums[i++];
         }
 
