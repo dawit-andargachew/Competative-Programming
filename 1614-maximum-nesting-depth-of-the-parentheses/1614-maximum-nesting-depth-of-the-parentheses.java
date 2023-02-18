@@ -12,8 +12,8 @@ class Solution {
                 open++;
             else if ( c == ')')
                 open--;
-            else 
-                continue;
+            // else 
+            //     continue;
             max = Math.max(max,open);
                 
         }
