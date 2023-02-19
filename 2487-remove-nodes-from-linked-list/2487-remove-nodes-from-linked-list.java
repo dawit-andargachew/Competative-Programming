@@ -22,14 +22,14 @@ class Solution {
         Stack<Integer> stack = new Stack();
 
         while(head != null){
-            if(stack.size() > 0 && head.val < stack.peek())// step-1
-                stack.push(head.val);
-            else {
+            if(stack.size() > 0 && stack.peek() < head.val){// step-1
                 while( stack.size() > 0 && stack.peek() < head.val)// step-2
                     stack.pop();
 
                 stack.push(head.val);// append value after removing elements
-            }
+            }else
+                stack.push(head.val);
+
             head = head.next;
         }
 
