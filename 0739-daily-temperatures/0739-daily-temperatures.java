@@ -22,7 +22,8 @@ class Solution {
                 while(stack.size() > 0 && temperatures[stack.peek()] < n)
                     temperatures[stack.peek()] = i - stack.pop();
                 
-                stack.push(i);// finally store the current index, because is becomes greater after above iteration
+                stack.push(i);
+                // finally store the current index, because is becomes greater after above iteration
             }
         }
 
