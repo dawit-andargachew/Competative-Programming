@@ -2,5 +2,5 @@
 
 <br> 
 
-## This repo contains competitive programming question solutions for different sites like Leetcode, Codeforces, HackeRank . . .
+## 📑 This repo contains competitive programming question solutions for different sites like Leetcode, Codeforces, HackeRank . . .
 <br>
