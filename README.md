@@ -1,5 +1,7 @@
-# Thanks to A2SV - Africa to Silicon Valley for making this possible
+# Thanks to <a href="https://a2sv.org/"> A2SV - Africa to Silicon Valley </a>  for making this possible.
 
-## This repo contains competitive programming question solutions for leetcode,code force, hacker rank ....
+<br> 
+
+## This repo contains competitive programming question solutions for different sites like Leetcode, Codeforce, Hacker rank ....
 <br>
 
