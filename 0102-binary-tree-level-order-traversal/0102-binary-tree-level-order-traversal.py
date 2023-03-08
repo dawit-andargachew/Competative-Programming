@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# from collections import deque
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         
@@ -11,7 +12,7 @@ class Solution:
             return 
 
         returned_list = []
-        queue = []
+        queue = deque()
         
         queue.append(root)
         
@@ -29,7 +30,7 @@ class Solution:
                     queue.append( queue[0].right )
                 
                 temp.append( queue[0].val )
-                queue.pop(0)
+                queue.popleft()
             
             returned_list.append( temp )
         
