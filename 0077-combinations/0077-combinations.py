@@ -2,9 +2,11 @@ class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         
         
-        # we have two branches at each level so 
-        # time complexiy = 2^n + for copying
-        # see the other implementation
+        # the other implementation is
+        # we have n branches and each have k iterations each
+        # time complexiy = n^k + for copying
+        # in here, insteading of checking yes or no for every possible move, iterate over a for loop and call them
+
         ans = []        
         def backtrack(idx, acc):
             
@@ -14,11 +16,12 @@ class Solution:
             
             if idx > n:
                 return
-        
-            acc.append(idx)
-            backtrack( idx + 1, acc)
-            acc.pop()
-            backtrack( idx + 1, acc)
+            
+            for i in range(idx, n + 1):
+                acc.append(i)
+                backtrack( i + 1, acc)
+                acc.pop()
+            # backtrack( idx + 1, acc)
             
         backtrack(1, [])        
         
