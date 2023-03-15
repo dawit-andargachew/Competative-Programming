@@ -9,9 +9,6 @@ class Solution:
         half = 2**(N - 1)//2
         
         if K > half:
-            if self.kthGrammar(N - 1, K - half) == 0:
-                return 1
-            else:
-                return 0
+            return 1 - self.kthGrammar(N - 1, K - half)
         else:
             return self.kthGrammar(N - 1, K)
