@@ -4,8 +4,9 @@ class Solution:
 # - https://leetcode.com/problems/k-th-symbol-in-grammar/solutions/945679/python-recursive-everything-you-need-to-know/
         if N == 1: 
             return 0
-
-        half = 2**(N - 2)
+        
+        # mid element is this
+        half = 2**(N - 1)//2
         
         if K > half:
             if self.kthGrammar(N - 1, K - half) == 0:
