@@ -1,6 +1,16 @@
-# Great Thanks to 👌 <a href="https://a2sv.org/"> A2SV - Africa to Silicon Valley </a> 👌  for making this possible.
+<br>
+<hr>
 
+# &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Great Thanks to <br> 
+
+#  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 📌 <a href="https://a2sv.org/"> A2SV - Africa to Silicon Valley </a> 📌 
+
+# &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; for making this possible.
+
+<hr>
 <br> 
 
-## 📑 This repo contains competitive programming question solutions for different sites like Leetcode, Codeforces, HackeRank . . .
+## 📑 This repository contains solutions to competitive programming questions from various sites like LeetCode, Codeforces, HackerRank, GeeksforGeeks . . . 
+
 <br>
+
