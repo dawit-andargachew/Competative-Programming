@@ -8,6 +8,7 @@ class Solution:
         # We can only make k swaps
         #                     so, sum of all elements other than the letter with max frequency should be <= k
         #                      Meaning, element max frequency doesn't need a swap, but to maximize the length other letters should be swaped
+        
         while i < len(s):
 
             map[s[i]] += 1
@@ -25,7 +26,7 @@ class Solution:
 
                     low += 1
                     # recalculate the sum_without_max
-                    sum_without_max = sum(map.values()) - max( map.values())
+                    sum_without_max -= 1
             
             max_length = max(max_length, i - low + 1)
 
