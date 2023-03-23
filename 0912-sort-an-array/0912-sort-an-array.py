@@ -3,25 +3,8 @@ class Solution:
         
         # merging part
         def Merge(left_p, right_p):
-            temp = []
-            
-            i,j = 0, 0
-            while i < len(left_p) and j < len(right_p):
-                if left_p[i] <= right_p[j]:
-                    temp.append( left_p[i] )
-                    i += 1
-                else:
-                    temp.append( right_p[j] )
-                    j += 1
-            
-            while i < len(left_p):
-                temp.append( left_p[i])
-                i += 1
-            
-            while j < len(right_p):
-                temp.append( right_p[j])
-                j += 1
-            
+            temp = left_p + right_p
+            temp.sort()
             return temp
             
         # deviding part
