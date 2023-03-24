@@ -28,3 +28,4 @@ class Solution:
         Quick(0, len(nums) - 1)
         
         return result
+    
