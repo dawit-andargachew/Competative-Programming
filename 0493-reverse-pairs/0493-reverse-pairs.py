@@ -16,26 +16,29 @@ class Solution:
                     j += 1
                 else:
                     i += 1
-
-            # sort left and right before returnig to higher level callers
-            merged, i , j = [], 0 , 0
-            while i < len(left) and j < len(right):
-                if left[i] <= right[j]:
-                    merged.append( left[i])
-                    i += 1
-                else:
-                    merged.append( right[j] )
-                    j += 1
-
-            # for left part
-            while i <len(left):
-                merged.append( left[i] )
-                i += 1
             
-            # for right part
-            while j < len(right):
-                merged.append( right[j] )
-                j += 1            
+            # CUSTOM SOTRING CODE, LEFT AND RIGHT ARE SOTRED so it is like merging two sorted lists
+            # sort left and right before returnig to higher level callers
+            # merged, i , j = [], 0 , 0
+            # while i < len(left) and j < len(right):
+            #     if left[i] <= right[j]:
+            #         merged.append( left[i])
+            #         i += 1
+            #     else:
+            #         merged.append( right[j] )
+            #         j += 1
+
+            # # for left part
+            # while i <len(left):
+            #     merged.append( left[i] )
+            #     i += 1
+            
+            # # for right part
+            # while j < len(right):
+            #     merged.append( right[j] )
+            #     j += 1           
+            merged = left + right
+            merged.sort() 
             return merged
 
 
