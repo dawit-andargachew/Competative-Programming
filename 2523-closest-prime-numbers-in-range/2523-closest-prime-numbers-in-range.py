@@ -4,7 +4,6 @@ class Solution:
         validPrimes, min_primes = [], [-1, -1]
         
         def generatePrimes():
-
             primes = [True] * (right + 1)
             primes[0] = primes[1] = False
 
