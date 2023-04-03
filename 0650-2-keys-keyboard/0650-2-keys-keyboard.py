@@ -1,5 +1,7 @@
 class Solution:
     def minSteps(self, n: int) -> int:
+        
+        #******************* It can also solved by summing the prime factors of a number
 
         # checks if the number is prime or not 
         # if the number is no't prime it retuns maximum divisor as well
