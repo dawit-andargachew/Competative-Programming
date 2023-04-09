@@ -12,6 +12,7 @@ class Solution:
         for i in instructions:
             numberOfLess = s.bisect_left(i)
             numberOfGreater =  len(s) - s.bisect_right(i)
+            
             answer += min(numberOfLess, numberOfGreater)
             s.add(i)
         
