@@ -1,10 +1,9 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-
-        # perimeter = 0
-        visited, directions = set(), [(0,1), (0,-1), (1,0), (-1,0)]
+        
+        # Look at the other submissions too, from bad to better ...
+        visited  = set()
         def dfs(row, col):
-
             # base cases
             if row >= len(grid) or row < 0 or col >= len(grid[0]) or col < 0 or grid[row][col] == 0:
                 return 1
@@ -13,11 +12,12 @@ class Solution:
 
             visited.add( ( row, col))
 
-            perimeter = 0
-            for d in directions:
-                newRow, newCol = row + d[0], col + d[1]
-                perimeter += dfs(newRow, newCol)
-            
+            perimeter = dfs(row, col)
+            perimeter += dfs(row + 1, col)
+            perimeter += dfs(row - 1, col)
+            perimeter += dfs(row, col + 1)
+            perimeter += dfs(row, col - 1)
+
             return perimeter
         
         # lets get the first 1 in the matrix and start find the perimeter over that
