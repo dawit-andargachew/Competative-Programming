@@ -6,7 +6,7 @@ class Solution:
 
         def getFirstOne():
             startRow, startCol, row , col = 0, 0, 0, 0
-
+            
             while row < len(grid):
                 while col < len(grid[0]):
                     if grid[row][col] == 1:
@@ -23,18 +23,19 @@ class Solution:
 
         def dfs(row, col):
             nonlocal perimeter
-            
+
             # base cases
             if isInValid(row, col) or grid[row][col] == 0:
+                perimeter += 1
                 return
-
+            
             # calculate perimeter
-            for d in directions:
-                newRow, newCol = row + d[0], col + d[1]
-                if isInValid(newRow, newCol):
-                    perimeter += 1
-                elif grid[newRow][newCol] == 0:
-                    perimeter += 1
+            # for d in directions:
+            #     newRow, newCol = row + d[0], col + d[1]
+            #     if isInValid(newRow, newCol):
+            #         perimeter += 1
+            #     elif grid[newRow][newCol] == 0:
+            #         perimeter += 1
 
             visited.add( ( row, col))
             for d in directions:
