@@ -1,6 +1,7 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-
+        # similar with 200. Number of Islands
+        
         visited = set()
         def dfs(row, col):
             
