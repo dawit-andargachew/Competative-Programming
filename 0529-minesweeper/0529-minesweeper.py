@@ -1,6 +1,6 @@
 class Solution:
     def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
-
+        
         # the question is to simulate minsweeper game and need to answer to questions
         # 1, when to stop
         #   if the given cell has adjacent mines, stop exploring and backtrack to the previos cell
