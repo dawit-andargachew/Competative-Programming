@@ -7,15 +7,14 @@
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         
-        q, answer = deque(), []
-        
+        q, answer = deque(), []        
         q.append(root)        
         while q:
             
             curr_level = len(q)
             total =  0
             
-            for i in range(curr_level):
+            for _ in range(curr_level):
                 node = q.popleft()
                 if node.left:
                     q.append(node.left)
