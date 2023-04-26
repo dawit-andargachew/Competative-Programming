@@ -12,15 +12,18 @@ class Solution:
         q.append(root)        
         while q:
             
-            levelsize, total = len(q), 0
-            for i in range(levelsize):
+            curr_level = len(q)
+            total =  0
+            
+            for i in range(curr_level):
                 node = q.popleft()
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append( node.right)                
-                total += node.val                
-            answer.append( total/ levelsize )
+                total += node.val
+                
+            answer.append( total/ curr_level )
             
         return answer
         
