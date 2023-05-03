@@ -8,28 +8,29 @@ class Solution:
         answer = 0
         
         # at each node we need to do 2 things
-        # 1, return the laragest single line path two parent
-        # 2, consider only two child paths and update the global max
+        # 1, take the two largest paths and update the global max
+        # 2, return the firstLargest + 1 to the parent
         
         def dfs(node):
             nonlocal answer
 
-            firstBranch, secondBranch = 0, 0
+            firstLongest, secondLongest = 0, 0
             for child in graph[node]:
                 pathLength = dfs(child)
                 
+                # check adjacent nodes are different => parent and child
                 if s[child] != s[node]:
-                    if pathLength > firstBranch:
-                        secondBranch = firstBranch
-                        firstBranch = pathLength
-                    elif pathLength > secondBranch:
-                        secondBranch = pathLength
+                    if pathLength > firstLongest:
+                        secondLongest = firstLongest
+                        firstLongest = pathLength
+                    elif pathLength > secondLongest:
+                        secondLongest = pathLength
             
             # take the two larges paths, and check with global max
-            answer = max(answer, firstBranch + 1 + secondBranch)
+            answer = max(answer, firstLongest + 1 + secondLongest)
             
-            # 1, return only the largest single path to the parent
-            return firstBranch + 1
+            # return the largest single path to the parent
+            return firstLongest + 1
         
         dfs(0)
         return answer
