@@ -1,31 +1,33 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # FOR DFS IMPLEMENTATION SEE PREVIOS SUBMISSION
 
-        # the question is simply check for cycle
-        WHITE, GREY, BLACK = 0, 1, 2 # not visited, on progress, visited respectively
+        # constuct graph and keep track of degree 
+        graph, degree = defaultdict(list), [0] * numCourses
+        for index, value in enumerate(prerequisites):
+            graph[ value[1] ].append( value[0] )
+            degree[ value[0] ] += 1
 
-        preMap = defaultdict(list)
-        for pre in prerequisites:
-            preMap[pre[0]].append( pre[1] )            
-        
-        color = defaultdict(int)
-        def hasCycle(node):
+        # if a given course has no prerequisites, its degree becomes zero
+        # start BFS from courses which have no prerequisites
+        q = deque()
+        for i in range( len(degree) ):
+            if degree[i] == 0:
+                q.append(i)
 
-            color[node] = GREY
-            for neighbour in preMap[node]:
-                if color[neighbour] == WHITE:
-                    if not hasCycle(neighbour):
-                        return False
-                # if the next explored node is still explored there is a cycle
-                elif color[neighbour] == GREY: 
-                    return False
+        # do a BFS, and decrement the degree once we reach a course
+        # if degree of a courser is zero it has no prerequisites so add to queue
+        order = 0
+        while q:
+            curr = q.popleft()
+            order += 1
+            for node in graph[curr]:
+                degree[node] -= 1
 
-            # after visiting all of 'node' neighbours mark it as done.
-            color[node] = BLACK
+                if degree[node] == 0:
+                    q.append( node )
+
+        # EDGE CASE, what if there is no prerequisites
+        if order == numCourses or len(prerequisites) == 0:
             return True
-
-        for course in range( numCourses ):
-            if not hasCycle(course):
-                return False
-
-        return True        
+        return False
