@@ -1,26 +1,22 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         
-        graph = defaultdict(list)
-        # convert the edge list to adjacency list to make it easier for dfs
-        for e in edges:
-            graph[e[0]].append(e[1])
-            graph[e[1]].append(e[0])
+        # Lets use Union Find even if it can be implemented by DFS easily
+
+        # initialize the dict to store representative for each node
+        represent = {i: i for i in range(n) }
+
+        def union(u, v):
+            u_rep = find(u)
+            v_rep = find(v)
+            represent[ v_rep ] = u_rep
         
-        visited = set()
-        
-        # dfs function 
-        def dfs(node):
-            if node == destination:
-                return True
-            
-            visited.add(node)
-            for i in graph[node]:
-                if i not in visited:
-                    found =dfs(i)
-                    if found:
-                        return True
-        
-        
-        return dfs(source)
-        
+        def find(x):
+            while x != represent[x]:
+                x = represent[x]
+            return x
+
+        for u, v in edges:
+            union(u, v)
+
+        return find(source) == find(destination)
