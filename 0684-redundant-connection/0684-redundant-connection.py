@@ -1,45 +1,65 @@
+# # MORE OPTIMIZED SOLUTION
+# class Solution:
+#     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        
+#         # initialize the dictionary and rank
+#         graph = {i : i for i in range(1, len(edges) + 1)}
+#         rank = {i : 1 for i in range(1, len(edges) + 1)}
+        
+#         # optimized union, by using rank
+#         def union(x, y):
+#             x_val = find(x)
+#             y_val = find(y)
+
+#             if x_val == y_val:
+#                 return True
+#             else:
+#                 # lets use the rank to make find more efficient
+#                 if rank[ x_val ] > rank[ y_val ]:
+#                     graph[ y_val ] = x_val
+#                     rank[ x_val ] += rank[ y_val ]
+#                 else:
+#                     graph[ x_val ] = y_val
+#                     rank[ y_val ] += rank[ x_val ]
+#                 return False
+
+#         # Optimized find, 
+#         # after getting find connect each element on the path to their reference, so the depth becomes 1
+#         def find(x):
+#             val = x
+#             while x != graph[x]:
+#                 x = graph[x]
+            
+#             while val != graph[val]:
+#                 parent = graph[val]
+#                 graph[val] = x
+#                 val = parent
+
+#             return x
+
+#         for edge in edges:
+#             if union(edge[0], edge[1]):
+#                 return edge
+
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         
-        # It can be more optimized by Union Fold techinique
-        # this implementation is somehow bruteforce on DFS 
-        
-        graph = defaultdict(list)
-        for edge in edges:
-            graph[ edge[0] ].append( edge[1] ) 
-            graph[ edge[1] ].append( edge[0] )
+        # initialize the dictionary and rank
+        graph = {i : i for i in range(1, len(edges) + 1)}
+        def find(x):
+            while x != graph[x]:
+                x = graph[x]
+            return x
 
-        def hasCycle(node, visited, parent):
+        def union(x, y):
+            x_val = find(x)
+            y_val = find(y)
 
-            visited.add(node)
-            for i in graph[node]:
-                
-                # ignore ecxluded edges here
-                if node in excludeEdge and i in excludeEdge:
-                    continue
-                
-                # if i visited and i != parent, then there is a cycle in graph
-                # because the graph is undirected so edge [1,2]  => 1----2 is cyclic, so to avoid this condition
-                # i != parent handles that the above issue
-                if i != parent and i in visited:
-                    return True
-
-                if i not in visited:
-                    if hasCycle(i, visited, node):
-                        return True
-
-        def checkForCycle():
-            for key in list(graph.keys()):
-                if hasCycle(key, set(), key):
-                    return True
+            if x_val == y_val:
+                return True
+            graph[ y_val ] = x_val
             return False
 
-        excludeEdge  = []
-        for i in range( len(edges) ):
-            pair = edges[ len(edges) - 1 - i] # start removing edges from the end
-            excludeEdge = pair
-            
-            # after changing exluded edges check for cylce again,
-            # if there is no cycle, return current pair
-            if not checkForCycle():
-                return pair
+        for edge in edges:
+            if union(edge[0], edge[1]):
+                return edge
