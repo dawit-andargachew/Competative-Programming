@@ -1,4 +1,4 @@
-# Union Find implementation with classes
+# Union Find implementation
 class DisJointSet:
     def __init__(self):
         self.representative = {}
@@ -30,7 +30,7 @@ class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
         
         # Lets group indices on the same group with Union and Find algorithm
-        # then put the strings in one group in a single list and sort it
+        # then put the strings in one group in a single list and sort it so that we can easily access it
 
         dis  = DisJointSet()
 
@@ -44,10 +44,10 @@ class Solution:
             collect[ dis.find(i) ].append(s[i])
 
         # sort each list found on the same group
-        # to access each char by index add index at the end of each list
+        # to access each char by index add indexing option at the end of each list
         for k in collect:
             collect[k] = sorted(collect[k])
-            collect[k].append(0) # add indexing option at the end
+            collect[k].append(0) # add indexing option at the end, just append 0
         
         # extract string starting from index 0 in each group
         # But, whenever a given group char is accessed, we need to increase indexing option by one
