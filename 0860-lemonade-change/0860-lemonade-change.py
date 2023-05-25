@@ -14,10 +14,9 @@ class Solution:
                     five -= 2
                 else:
                     ten -= 1
-
                 five -= 1
 
-            # if there is a negative bill, we can't provice correct change
+            # if there is a negative bill, we can't provide correct change
             if five < 0 or ten < 0:
                 return False
 
