@@ -1,6 +1,6 @@
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
-        five, ten, twenty = 0, 0, 0
+        five, ten = 0, 0
 
         for bill in bills:
 
@@ -16,10 +16,9 @@ class Solution:
                     ten -= 1
 
                 five -= 1
-                twenty += 1
 
             # if there is a negative bill, we can't provice correct change
             if five < 0 or ten < 0:
                 return False
 
-        return (five * 5 + ten * 10 + twenty * 20)//len(bills) == 5
+        return True
