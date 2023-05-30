@@ -1,6 +1,7 @@
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
 
+# TOP DOWN approach says TLE
 #         def dp(n):
 #             if n <= 1:
 #                 return cost[n]
