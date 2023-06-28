@@ -2,10 +2,7 @@ class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
         
         # initialize representative dict, 
-        # initially, all chars are their own representative
-        representative = {i : i for i in s1}
-        representative |= {i: i for i in s2}
-        representative |= {i: i for i in baseStr}
+        representative = {}
 
         def union(x, y):
             x_rep = find(x)
@@ -18,6 +15,10 @@ class Solution:
                 representative[ y_rep ] = x_rep
         
         def find(val):
+            if val not in representative:
+                representative[val] = val
+                return val
+
             while val != representative[val]:
                 val = representative[val]
             return val
@@ -27,9 +28,9 @@ class Solution:
             union( s1[i], s2[i])
         
         # extract lexicographically smallest equivalent string for baseStr
-        answer =  ""
+        answer =  []
         for i in baseStr:
             # for each char find its representative
-            answer += find(i)
+            answer.append(find(i))
 
-        return answer
+        return "".join(answer)
