@@ -1,27 +1,32 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-        
-        # Look at the other submissions too, from bad to better ...
-        visited  = set()
+
+        visited, area = set(), 0
+
+        def isValid(row, col):
+            nonlocal area
+            if 0 <= row < len(grid) and 0<= col < len(grid[0]) and grid[row][col] == 1:
+                return True
+            else:
+                area += 1
+    
         def dfs(row, col):
-            # base cases
-            if row >= len(grid) or row < 0 or col >= len(grid[0]) or col < 0 or grid[row][col] == 0:
-                return 1
-            if (row, col) in visited:
-                return 0
+            
+            visited.add((row, col))
+            for r, c in [ [0, 1], [1, 0], [0, -1], [-1, 0]]:
+                newRow, newCol = row + r, col + c
+                if isValid(newRow, newCol) and (newRow, newCol) not in visited:
+                    dfs(newRow, newCol)
 
-            visited.add( ( row, col))
-
-            perimeter = dfs(row, col)
-            perimeter += dfs(row + 1, col)
-            perimeter += dfs(row - 1, col)
-            perimeter += dfs(row, col + 1)
-            perimeter += dfs(row, col - 1)
-
-            return perimeter
-        
-        # lets get the first 1 in the matrix and start find the perimeter over that
-        for i in range( len(grid)):
-            for j in range( len(grid[0])):
+        isFound = False
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
                 if grid[i][j] == 1:
-                    return dfs(i, j)
+                    isFound = True
+                    dfs(i, j)
+                    break # break inner loop
+                
+            if isFound: # break outer loop
+                break
+
+        return area
