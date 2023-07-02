@@ -2,7 +2,6 @@ class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
 
         visited, area = set(), 0
-
         def isValid(row, col):
             nonlocal area
             if 0 <= row < len(grid) and 0<= col < len(grid[0]) and grid[row][col] == 1:
@@ -11,7 +10,6 @@ class Solution:
                 area += 1
     
         def dfs(row, col):
-            
             visited.add((row, col))
             for r, c in [ [0, 1], [1, 0], [0, -1], [-1, 0]]:
                 newRow, newCol = row + r, col + c
