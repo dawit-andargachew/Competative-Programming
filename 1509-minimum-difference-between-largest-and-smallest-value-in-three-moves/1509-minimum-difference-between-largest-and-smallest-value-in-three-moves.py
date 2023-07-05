@@ -5,13 +5,12 @@ class Solution:
         if len(nums) <= 4:
             return 0
         
-        # In total we have 3 moves so lets take every possible move
-        
+        # In total we have 3 moves so lets take every possible move        
         nums.sort()
-
+        
         def allFirst():
             return nums[-1] - nums[3]
-
+        
         def allLast():
             return nums[-4] - nums[0]
 
