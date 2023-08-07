@@ -1,17 +1,19 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-
-        left, right = 0, 0
-
-        while right < len(nums):
+        
+        i , j = 0 , 0        
+        while j < len(nums):
+            if nums[i] != nums[j]:
+                i += 1
+                nums[i] = nums[j]
+            j += 1        
+        
+        i += 1
+        answer = i
+        while i < len(nums):
+            nums[i] = "_"
+            i += 1
+        return answer
             
-            # move unique elements to the front of the array
-            nums[left] = nums[right]
-            left += 1
-
-            # if concecutive elements are identical, move the pointer forward
-            while right < len(nums) - 1 and nums[right] == nums[right + 1]:
-                right += 1
-            right += 1
-
-        return left
+        
+        
