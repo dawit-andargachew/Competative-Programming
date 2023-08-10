@@ -1,6 +1,7 @@
 class Solution:
     def minimumDifference(self, nums: List[int], k: int) -> int:
         
+        # sorting it makes easier to find the difference
         nums.sort()
         high, low, answer = 0, 0, float('inf')
         while high < len(nums):
