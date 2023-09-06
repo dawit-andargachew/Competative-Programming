@@ -1,5 +1,6 @@
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
+        
         pos = [1 for _ in range(len(nums))]
         neg = [1 for _ in range(len(nums))]
         
@@ -13,4 +14,5 @@ class Solution:
             else:
                 neg[i] = neg[i-1]
                 pos[i] = pos[i-1]
+                
         return max(pos[-1],neg[-1])
