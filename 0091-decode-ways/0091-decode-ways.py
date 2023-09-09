@@ -1,0 +1,12 @@
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        left, right = 1, 0
+        
+        for i in range(len(s)-1, -1, -1):
+            ans = 0
+            if s[i] != '0':
+                ans += left
+            if i+1 < len(s) and (s[i] == '1' or (s[i] == '2' and s[i+1] <= '6')):
+                ans += right
+            left, right = ans, left
+        return left
