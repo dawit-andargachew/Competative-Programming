@@ -1,4 +1,3 @@
-from heapq import heappush, heappop
 class Solution:
     def eatenApples(self, A: List[int], D: List[int]) -> int:
         ans, idx, N = 0, 0, len(A)
@@ -12,4 +11,5 @@ class Solution:
                 h[0][1] -= 1
                 ans += 1
             idx += 1
+            
         return ans 
