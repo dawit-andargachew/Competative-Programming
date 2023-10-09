@@ -1,15 +1,9 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
 
-        # initialPoints = []
-        # # store possible start points
-        # for i in range( len(haystack) ):
-        #     if haystack[i] == needle[0]:
-        #         initialPoints.append(i)
-
         # make string match starting from each possible options
         for i in range( len(haystack) ):
-            if haystack[i] == needle[0]:
+            if haystack[i] == needle[0]: # the starting symbol is the same so continue matching
                 index, temp = i, 0
                 while index < len(haystack) and temp < len(needle):
                     if haystack[index] == needle[temp]:
