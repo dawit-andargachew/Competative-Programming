@@ -9,17 +9,17 @@ class Solution:
         while q and step <= k:
             
             sz = len(q)
-            new_dis = list(dis)
+            new_distance = list(dis)
             
             for _ in range(sz):
                 cur = q.popleft()
                 
                 for neighbor in graph[cur]:
                     
-                    if new_dis[neighbor[0]] == -1 or new_dis[neighbor[0]] > dis[cur]+neighbor[1]:
-                        new_dis[neighbor[0]] = dis[cur] + neighbor[1]
+                    if new_distance[neighbor[0]] == -1 or new_distance[neighbor[0]] > dis[cur]+neighbor[1]:
+                        new_distance[neighbor[0]] = dis[cur] + neighbor[1]
                         q.append(neighbor[0])
             step += 1
-            dis = new_dis
+            dis = new_distance
 
         return dis[dst]
