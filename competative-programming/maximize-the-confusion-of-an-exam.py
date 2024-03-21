@@ -1,33 +1,28 @@
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
 
-        # assume maximize "T"
-        left, right, n = 0, 0, len(answerKey)
-        count, max_val = 0, 0
+        n = len(answerKey)
+        T_count = F_count = right = 0
+        T_left = F_left = max_val = 0
 
         while right < n:
             if answerKey[right] == "F":
-                count += 1
+                F_count += 1
+            if answerKey[right] == "T":
+                T_count += 1
             
-            while count > k and left < n:
-                if answerKey[ left ] == "F":
-                    count -= 1
-                left += 1
-            max_val = max(max_val, right - left + 1)
+            while T_count > k and F_left < n:
+                if answerKey[ F_left ] == "T":
+                    T_count -= 1
+                F_left += 1
+            
+            while F_count > k and T_left < n:
+                if answerKey[ T_left ] == "F":
+                    F_count -= 1
+                T_left += 1
+    
+            max_val = max(max_val, right - F_left + 1, right - T_left + 1)
             right += 1
         
-        # assume maximize "F"
-        left = right = count = 0
-        while right < n:
-            if answerKey[right] == "T":
-                count += 1
-            
-            while count > k and left < n:
-                if answerKey[ left ] == "T":
-                    count -= 1
-                left += 1
-            max_val = max(max_val, right - left + 1)
-            right += 1
-
         return max_val
         
