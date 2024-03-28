@@ -8,7 +8,7 @@ class Solution:
             s[ nums[i] ] += 1
             total += nums[i]
 
-            while (s[ nums[i] ] > 1 or len(s) > k) and left < i:
+            while s[ nums[i] ] > 1 or len(s) > k:
                 s[ nums[left] ] -= 1
                 total -= nums[left]
                 
@@ -16,7 +16,7 @@ class Solution:
                     s.pop( nums[left] )
                 left +=1
 
-            if len(s) == k and i - left + 1 == k:
+            if len(s) == k:
                 ans = max(ans, total)
             
 
