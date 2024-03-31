@@ -1,7 +1,8 @@
 from sortedcontainers import SortedList
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-
+        
+        # it is a sliding windows, but the time consuming part is sorting
         sorted_list = SortedList(nums[0:k])
         ans = [0] * (len(nums) - k + 1)
         ans[0] = sorted_list[x-1] if sorted_list[x-1] < 0  else 0
